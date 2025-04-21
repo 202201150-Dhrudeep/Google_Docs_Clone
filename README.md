@@ -1,131 +1,68 @@
-## ⭐ Introduction
- This project is a clone of 'Google Docs', designed to provide a collaborative document editing experience similar to Google Docs. It allows multiple users to create, edit, and collaborate on documents in real-time.
+# LiveDocs – Real-Time Collaborative Document Editor
+---
 
-## 🟢 Features
+## 📌 Problem Statement
 
-- **Document Creation and Storage:** Users can create new documents and store them securely in the database.
-- **Real-time Document Editing:** Multiple users can collaborate and edit the same document simultaneously, with changes reflected instantly for all participants.
-- **Real-time Sync:** Changes made by different users are automatically synchronized across all connected clients, ensuring seamless collaboration.
-- **Rich Text Editing:** The Quill text editor provides a rich editing experience, allowing users to format text, add images, and more.
+Modern collaborative environments demand seamless, real-time editing across users located remotely. Traditional editors often struggle with:
+- Inconsistent document states
+- Conflicting edits from multiple users
+- Data loss due to failures
 
-## 🔧 Tech-Stack 
+**LiveDocs** solves these issues with real-time editing, distributed storage, and fault-tolerant architecture.
 
-- **Frontend:**
-  - React.js
-  - Quill
-  - shadcn/ui
+---
 
-- **Backend:**
-  - Node.js
-  - Socket.io
+## 🛠️ System Overview
 
-- **Database:**
-  - MongoDB
+LiveDocs is a real-time collaborative document editor that enables multiple users to:
+- **Create**, **edit**, and **share** documents simultaneously
+- Collaborate from any location
+- Experience real-time changes with minimal latency
 
-- **Other Tools:**
-  - TypeScript
-  - Docker
+### 🔑 Key Features
+- **Real-Time Editing:** WebSocket-based instant broadcasting via Socket.IO
+- **Distributed Storage:** Ensures availability and persistence through replication
+- **Concurrency Control:** Achieved through real-time sync mechanisms
+- **Access Control:** Role-based permission system for viewing/editing
 
-## ▶️ Getting Started
+---
 
-To get a local copy up and running, please follow these simple steps.
+## ⚙️ System Architecture and Components
 
-### 🟡 Prerequisites
+### 🔁 Distributed System Concepts Applied
 
-Here's what you need to be able to run the application locally:
+- **Real-Time Synchronization:** Changes are instantly reflected across all users
+- **Concurrent Editing:** Multiple users can work on the same document concurrently
+- **Replication:** Ensures high availability and data integrity
+- **Fault Tolerance:** Automatic failover and replication keep the system reliable
+- **Access Control:** Protects documents with role-based permissions
 
-- Node.js (Version: >=18.x)
-- MongoDB
-- npm / yarn
+---
 
-## 💻 Development
+## 💻 Implementation Details
 
-### 🟢 Setup (without Docker) :
+### Frontend:
+- **React.js with TypeScript:** Strongly-typed UI development
+- **Quill.js:** Rich-text editor
+- **docx + FileSaver.js:** Export document content as `.docx`
+- **CSS frameworks:** Responsive UI and modal design
 
-1. Clone the repo. (or fork https://github.com/KshitijTodkar48/Google-Docs-Clone/fork).
+### Backend:
+- **Node.js with Express:** Handles API logic and client-server communication
+- **Socket.IO:** Enables real-time, bidirectional communication
 
-   ```sh
-   git clone https://github.com/KshitijTodkar48/Google-Docs-Clone.git
-   ```
+### Programming Language:
+- **TypeScript** (used across both frontend and backend)
 
-2. Go to the server directory.
- 
-   ```sh
-   cd server
-   ```
+### Database:
+- **MongoDB:** Persistent and scalable document storage
 
-3. Install packages with npm/yarn.
+### Key APIs/Libraries:
+- **Socket.IO API:** Real-time data communication
+- **Quill API:** Text editor customization and event handling
+- **docx API:** Converts content into downloadable Word format
 
-   ```sh
-   npm install
-   ```
-   or
-   
-   ```sh
-   yarn install
-   ```
-
-   
-4. Set up your `.env` variables.
-
-   Create a new file named `.env` in `Google-Docs-Clone/server` directory.
-
-   In the server `.env` file, add a variable named `DATABASE_URL`.
-   
-   - You will need you own MongoDB database (local or cloud). Put its link under `DATABASE_URL` in the `.env` file.
-
-   Add another variable named `CLIENT_ORIGIN` and set its value to `http://localhost:5173`.
-
-  
-5. Run the following command:
-   
-    ```sh
-    npm run dev
-    ```
-
-  Now the backend server will be running on http://localhost:3000
-
-6. Open a new terminal and go to the client directory.
-
-   ```sh
-   cd client
-   ```
-
-7. Install the client dependencies with npm/yarn.
-
-   ```sh
-   npm install
-   ```
-
-8. Set up your `.env` variables.
-
-   Create a new file named `.env` in `Google-Docs-Clone/client` directory.
-   
-   In that file, add a variable named `VITE_SERVER_URL` and set its value to `http://localhost:3000`.
-   
-10. Run the following command: 
-    ```sh
-    npm run dev
-    ```
-    
- The React app will be running on http://localhost:5173
+---
 
 
-## 🐋 Setup (with Docker) :
-
-1. Set up environment variables:
-   - Follow the steps 4 and 8 in the above 'Setup without docker' guide.
-     
-
-2. Run the following command in the root directory: 
-    ```sh
-    docker-compose up
-    ```
-
-Now the application will be running on http://localhost:5173
-
-
-## ▶️ Preview
-
-https://github.com/KshitijTodkar48/Google-Docs-Clone/assets/120639775/a7dc1200-3617-4214-b065-339a55eaad59
-
+**Enjoy LiveDocs!**
